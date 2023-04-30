@@ -17,7 +17,7 @@ where file.name = this.file.name
 
 返回当前颜色占所有颜色的总占比
 
-```DAX
+```js
 PctOverAllColors :=
 DIVIDE (
     [SalesAmount],
@@ -33,7 +33,7 @@ DIVIDE (
 -   NumOfProducts很简单，计算产品的总数
 -   NumOfProductsSold 则是通过表筛选计算有销售额的产品数
 
-```DAX
+```js
 NumOfProducts :=
 DISTINCTCOUNT ( Product[ProductName] )
  
@@ -50,7 +50,7 @@ CALCULATE (
 
 至此可能会想如果是计算有销售额的商品的占比应该是这样写
 
-```DAX
+```js
 PercOfProductsSold =
 DIVIDE (
     CALCULATE (
@@ -77,7 +77,7 @@ DIVIDE (
 
 这时候我可以强制转换上下文，使用CALCULATETABLE,
 
-```DAX
+```js
 PercOfProductsSold =
 DIVIDE (
     CALCULATE (
@@ -93,7 +93,7 @@ DIVIDE (
 
 可以得到正确结果 ，但是它实际上是改变了公式的语义，明确表示需要使用ALL ( Sales )的结果才能筛选，可以用下面的方式获得类似的效果
 
-```DAX
+```js
 PercOfProductsSold =
 DIVIDE (
     CALCULATE (
@@ -109,7 +109,7 @@ DIVIDE (
 
 ![[Pasted image 20220717224951.png]]
 
-```DAX
+```js
 NoFilterOnProduct =
     CALCULATE (
         [Sales Amount],
@@ -123,7 +123,7 @@ ALLEXCEPT是从Sales的扩展表上删除筛选器，其中包括与Sales是一�
 
 为防止ALLEXCEPT从扩展表中删除筛选，可以如下写
 
-```DAX
+```js
 NoFilterOnProduct =
     CALCULATE (
         [Sales Amount],

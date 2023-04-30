@@ -10,7 +10,7 @@ url: https://www.sqlbi.com/articles/blank-row-in-dax/ https://www.sqlbi.com/arti
 cover: 
 ---
 
-```DAX
+```js
 Net Amount % 1 := 1 - ( [Discount] / [Amount] )
 Net Amount % 2 := ( [Amount] - [Discount] ) / [Amount]
 ```
@@ -24,7 +24,7 @@ Net Amount % 2 := ( [Amount] - [Discount] ) / [Amount]
 
 最好的方式是进行拆分
 
-```DAX
+```js
 Net Amount % 3 :=
 VAR DiscountPercentage =
     DIVIDE ( [Discount], [Amount] )
@@ -35,7 +35,7 @@ RETURN
     )
 ```
 
-```DAX
+```js
 Net Amount % 4 =
 VAR Amount = [Amount]
 VAR Discount = [Discount]
@@ -47,7 +47,7 @@ RETURN
     )
 ```
 
-```DAX
+```js
 Net Amount % 5 =
 VAR Amount = [Amount]
 VAR Discount = [Discount]
@@ -86,7 +86,7 @@ RETURN (Amount - Discount) / Amount
 
 先看下面两个度量
 
-```DAX
+```js
 #Colors Distinct := COUNTROWS ( DISTINCT ( 'Product'[Color] ) )
 #Colors Values := COUNTROWS ( VALUES ( 'Product'[Color] ) )
 ```
@@ -107,12 +107,12 @@ RETURN (Amount - Discount) / Amount
 
 假设想统计产品数量
 
-```DAX
+```js
 #Products := COUNTROWS ( 'Product' )
 
 ```
 
-```DAX
+```js
 #Products Values := COUNTROWS ( VALUES ( 'Product' ) )
 ```
 
@@ -121,7 +121,7 @@ RETURN (Amount - Discount) / Amount
 
 如果想计算每个品牌的产品数占总产品数的比例，可以简单写成下面
 
-```DAX
+```js
 Perc #Prods :=
 DIVIDE (
     COUNTROWS ( 'Product' ),
@@ -137,7 +137,7 @@ DIVIDE (
 
 -   ALLNOBLANKROW 不考虑空白行
 
-```DAX
+```js
 Perc #Prods Values :=
 DIVIDE (
     COUNTROWS ( VALUES ( 'Product' ) ),

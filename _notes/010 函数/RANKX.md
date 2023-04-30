@@ -17,7 +17,7 @@ returns: 标量
 
 ## 语法
 
-```DAX
+```js
 RANKX( <表>, <表达式>, [<值>], [<排序>], [<平局规则>])
 ```
 
@@ -43,7 +43,7 @@ RANKX( <表>, <表达式>, [<值>], [<排序>], [<平局规则>])
 
 ## 示例
 
-```DAX
+```js
 --  RANKX computes the ranking of an expression over a table
 --  The expression is evaluated during the iteration over the
 --  table and then in the evaluation context of RANKX.
@@ -69,7 +69,7 @@ ORDER BY [@Amt] DESC
 
 ![](https://secure2.wostatic.cn/static/aZ7Y8iELoXWsig4ivd5cyc/image.png?auth_key=1653838630-q2z67f3iF1p1d1AJ3Zpef2-0-807ebb028a2ebf6b9a9337ab35e7b73a)
 
-```DAX
+```js
 --  The third argument of RANKX is useful when the outer
 --  evaluation requires a different expression than the
 --  inner one. For example, when ranking an expression over
@@ -89,7 +89,7 @@ ORDER BY [Level] ASC
 
 ![](https://secure2.wostatic.cn/static/9iUD93bEE5a8v5XUVARNmP/image.png?auth_key=1653838653-cSdNUuHNYqWLfA2s1yKzjn-0-1ede17f58143381502b0a577e04358b4)
 
-```DAX
+```js
 --  The fourth argument of RANKX specifies the order of ranking
 --  it can be DESC (default) or ASC
 DEFINE
@@ -107,7 +107,7 @@ ORDER BY [@Amt] DESC
 
 ![](https://secure2.wostatic.cn/static/vhqZprDLCqwEss1JS4qZaz/image.png?auth_key=1653838663-rmgGTQCkUSCV2QkGrjbwmU-0-3c3422eb768fa0f94f3117bf50add2cd)
 
-```DAX
+```js
 --  The fifth argument of RANKX specifies the behavior in
 --  case of ties. SKIP (default) skips positions, whereas
 --  DENSE guarantees a 1-step increment in the ranking

@@ -16,7 +16,7 @@ cover:
 
 ## 语法
 
-```DAX
+```js
 ALLNOBLANKROW ( <TableNameOrColumnName> [, <ColumnName> [, <ColumnName> [, … ] ] ] )
 ```
 
@@ -42,13 +42,13 @@ ALLNOBLANKROW ( <TableNameOrColumnName> [, <ColumnName> [, <ColumnName> [, … ]
 
 ## 示例
 
-```DAX
+```js
 ALLNOBLANKROW ( Customer )
  
 ALLNOBLANKROW ( Customer[Country], Customer[State] , Customer[City] )
 ```
 
-```DAX
+```js
 -- 
 --  ALLNOBLANKROW still returns blanks, if they are present among the
 --  regular rows of the table. The only blank ignored is the one in the
@@ -65,7 +65,7 @@ ORDER BY [Birth Date]
 ![](https://secure2.wostatic.cn/static/5bW7vSLmFd1Eb5VJfVgBnk/image.png?auth_key=1652797738-jMs3Ru4yEZFpa2r3DKfda1-0-6bcf0b7d64dcc64bf06a13aa53ea6b16)
 
 ### 移除空行
-```DAX
+```js
 --
 --  If you need to remove blanks, you need to use either FILTER
 --  or CALCULATETABLE to manually remove blanks.
@@ -81,7 +81,7 @@ EVALUATE
 ORDER BY [Birth Date]
 ```
 如果果不使用[[FILTER]]
-```dax
+```js
 EVALUATE
     ADDCOLUMNS (
         ALLNOBLANKROW ( Customer[Birth Date] ), 

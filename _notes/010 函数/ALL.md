@@ -18,7 +18,7 @@ url:
 
 ## 语法
 
-```DAX
+```js
 ALL ( [<表名或列名>] , [ <列名>, … ] )
 ```
 
@@ -52,43 +52,43 @@ ALL ( [<表名或列名>] , [ <列名>, … ] )
 
 ## 示例
 
-```DAX
+```js
 ALL ( Customer )    //返回完整的客户表
 ```
 
-```DAX
+```js
 ALL ( Customer[Country], Customer[State] , Customer[City] )    //返回客户表来自国家、州、城市三列的所有不重复组
 ```
 
-```DAX
+```js
 CALCULATE ( COUNTROWS ( Sales ), ALL ( Customer ) )    //删除客户表的所有筛选
 ```
 
-```DAX
+```js
 ALL ( Customer ) //返回完整的客户表
 ```
 
-```DAX
+```js
 ALL ( Customer[Country], Customer[State] , Customer[City] ) //返回客户表来自国家、州、城市三列的所有不重复组合
 ```
 
-```DAX
+```js
 CALCULATE ( COUNTROWS ( Sales ), ALL ( Customer ) ) //删除客户表的所有筛选
 ```
 
-```DAX
+```js
 ALL ( Customer )    //返回完整的客户表
 ```
 
-```DAX
+```js
 ALL ( Customer[Country], Customer[State] , Customer[City] )    //返回客户表来自国家、州、城市三列的所有不重复组合
 ```
 
-```DAX
+```js
 CALCULATE ( COUNTROWS ( Sales ), ALL ( Customer ) )    //删除客户表的所有筛选
 ```
 
-```DAX
+```js
 --
 --  ALL with a table works on the expanded table, removing filters
 --  from any column in the expanded table

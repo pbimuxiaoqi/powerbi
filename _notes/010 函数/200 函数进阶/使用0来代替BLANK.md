@@ -27,7 +27,7 @@ https://www.sqlbi.com/articles/how-to-return-0-instead-of-blank-in-dax/
 
 一个解决方案如下：
 
-```DAX
+```js
 SalesZero =
 VAR FirstSaleEver =
     CALCULATE ( MIN ( 'Sales'[Order Date] ), ALLEXCEPT ( Sales, 'Product' ) )
@@ -42,7 +42,7 @@ RETURN
 
 还可以修改判断以适应不同的需求，比如
 
-```DAX
+```js
 
 VAR ForceZero = FirstSaleEver <= MAX ( 'Date'[Date] ) && MIN ( 'Date'[Date] ) <= LastSaleEver
 
@@ -51,7 +51,7 @@ VAR ForceZero = FirstSaleEver <= MAX ( 'Date'[Date] ) && MIN ( 'Date'[Date] ) <=
 
 一个更好的解决方案是将初始销售日期相关的信息存储在单独的表中，
 
-```DAX
+```js
 ZeroGrain =
 VAR MaxSale = MAX ( Sales[Order Date] )
 VAR ProdsAndDates =
@@ -76,7 +76,7 @@ RETURN
 
 但是这个表太大了，它接近于Product和Date表的交叉连接
 
-```DAX
+```js
 SalesZeroWithTable =
 VAR ForceZero = COUNTROWS ( ZeroGrain ) > 0
 VAR Amt = [Sales Amount] + IF ( ForceZero, 0 )
@@ -89,7 +89,7 @@ RETURN
 ## 方案三
 生成一张计算表，包含所有商品的所有的订单日期
 
-```DAX
+```js
 ZeroGrain = 
 CROSSJOIN(
     ALLNOBLANKROW( 'Sales'[OrderDate] ),

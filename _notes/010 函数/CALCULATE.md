@@ -8,7 +8,7 @@ score: 5
 
 ## 语法
 
-```DAX
+```js
 CALCULATE( <表达式>, [ <筛选器 1> ], [ <筛选器 2> ] … )
 ```
 
@@ -37,7 +37,7 @@ CALCULATE( <表达式>, [ <筛选器 1> ], [ <筛选器 2> ] … )
 
 ## 示例
 
-```DAX
+```js
 --  The compact syntax (boolean) is expanded in the full syntax
 --  prior to the evaluation
 DEFINE
@@ -57,7 +57,7 @@ SUMMARIZECOLUMNS (
 )
 ```
 
-```DAX
+```js
 --  You can use any condition as an argument, as long as it can
 --  be converted into a table by the DAX engine
 DEFINE
@@ -77,7 +77,7 @@ SUMMARIZECOLUMNS (
 )
 ```
 
-```DAX
+```js
 --  The KEEPFILTERS modifier does not remove an existing filter
 DEFINE
     MEASURE Sales[Red Blue Sales Keepfilters] =
@@ -99,7 +99,7 @@ SUMMARIZECOLUMNS (
 )
 ```
 
-```DAX
+```js
 --  When CALCULATE is executed in a row context, it transforms
 --  the row contexts in equivalent filter contexts
 DEFINE
@@ -118,7 +118,7 @@ SUMMARIZECOLUMNS (
 )
 ```
 
-```DAX
+```js
 --  CALCULATE is implicitly added to any measure reference
 DEFINE
     MEASURE Sales[Sales Amount] =
@@ -144,7 +144,7 @@ SUMMARIZECOLUMNS (
 )
 ```
 
-```DAX
+```js
 --  CALCULATE evaluation steps:
 --      1. Evaluation of filter arguments
 --      2. Context transition

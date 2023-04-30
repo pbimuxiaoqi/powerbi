@@ -24,7 +24,7 @@ cover:
 
 ### 各品类的Top3商品
 
-```dax
+```js
     GENERATE (
         ALLSELECTED ( 'Product'[Category] ),         -- For each category
         TOPN (                                       -- retrieve the top

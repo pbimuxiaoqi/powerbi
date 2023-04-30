@@ -23,7 +23,7 @@ where file.name = this.file.name
 
 ## 语法
 
-```DAX
+```js
 ALLEXCEPT ( <TableName>, <ColumnName> [, <ColumnName> [, … ] ] ) 
 ```
 
@@ -43,7 +43,7 @@ ALLEXCEPT ( <TableName>, <ColumnName> [, <ColumnName> [, … ] ] )
 
 ## 示例
 
-```DAX
+```js
 --  Returns all the 'Product' columns
 EVALUATE
 ALL ( 'Product' )
@@ -53,7 +53,7 @@ EVALUATE
 ALLEXCEPT ( 'Product', 'Product'[ProductKey], 'Product'[Product Code] )
 ```
 
-```DAX
+```js
 --  In this example, ALLEXCEPT ignores Sales expanded table filters
 --  except the cross-filters coming from Date and the column Product[Color]
 DEFINE
@@ -76,7 +76,7 @@ ORDER BY [Value1]
 
 用作表函数时，会忽略扩展表的筛选，所以下面TABLE FUNCTION显示为sales的总行数
 
-```DAX
+```js
 CALCULATETABLE (
     {
         ( "FILTER", COUNTROWS ( Sales ) ),

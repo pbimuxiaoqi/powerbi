@@ -23,7 +23,7 @@ where file.name = this.file.name
 
 ## 语法
 
-```DAX
+```js
 REMOVEFILTERS ( [<表名或列名>], [<列名>], [<列名>] … )
 ```
 
@@ -43,7 +43,7 @@ REMOVEFILTERS ( [<表名或列名>], [<列名>], [<列名>] … )
 
 ## 示例
 
-```DAX
+```js
 -- Filter Litware/Red
 EVALUATE
 CALCULATETABLE (
@@ -67,7 +67,7 @@ CALCULATETABLE (
 ![[Pasted image 20220718212624.png]]
 ![[Pasted image 20220718212635.png]]
 
-```dax
+```js
 -- Filter Litware/Red
 EVALUATE
 CALCULATETABLE (

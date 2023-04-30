@@ -17,7 +17,7 @@ returns: 表
 
 ## 语法
 
-```DAX
+```js
 FILTER ( <表>, <布尔表达式> )
 ```
 
@@ -41,7 +41,7 @@ FILTER ( <表>, <布尔表达式> )
 
 ## 示例
 
-```DAX
+```js
 EVALUATE
 FILTER (
     Customer,
@@ -51,7 +51,7 @@ FILTER (
 
 FILTER可以通过RELATED来使用其他表进行筛选，但通常[[CALCULATE#语法]]是最好的选择
 
-```DAX
+```js
 --  Being an iterator, FILTER creates a row context. If you need
 --  to access related tables, the RELATED function is needed.
 --  This makes the usage of CALCULATE preferred over FILTER, when
@@ -80,7 +80,7 @@ SUMMARIZECOLUMNS (
 
 FILTER进行上下文转换
 
-```DAX
+```js
 DEFINE
     MEASURE Sales[Sales Amount] =
         SUMX ( Sales, Sales[Quantity] * Sales[Net Price] )
@@ -104,7 +104,7 @@ SUMMARIZECOLUMNS (
 
 FILTER来迭代变量内容
 
-```DAX
+```js
 --  AVERAGE Monthly Sales computes the average sales for the months
 --  with at least 10K sales
 DEFINE
@@ -132,7 +132,7 @@ SUMMARIZECOLUMNS (
 
 FILTER先迭代后筛选
 
-```DAX
+```js
 EVALUATE
 FILTER(
     ADDCOLUMNS(
@@ -145,7 +145,7 @@ FILTER(
 
 ![[Pasted image 20211104142253.png]]
 
-```DAX
+```js
 CALCULATETABLE (
     ADDCOLUMNS(
         VALUES( 'Product'[Color] ), 

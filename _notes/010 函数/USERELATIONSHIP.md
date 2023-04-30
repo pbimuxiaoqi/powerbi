@@ -13,7 +13,7 @@ cover:
 
 ## 语法
 
-```DAX
+```js
 USERELATIONSHIP ( <列 1>, <列 2> )
 ```
 
@@ -39,7 +39,7 @@ USERELATIONSHIP ( <列 1>, <列 2> )
 
 ## 示例
 
-```DAX
+```js
 --  USERELATIONSHIP activates a disabled relationship, deactivating
 --  possible conflicting relationships.
 --
@@ -59,7 +59,7 @@ SUMMARIZECOLUMNS (
 )
 ```
 
-```DAX
+```js
 [Delivered Amount in 2007] = 
 CALCULATE (
     [Sales Amount],

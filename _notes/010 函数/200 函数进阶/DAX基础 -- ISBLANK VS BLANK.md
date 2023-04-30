@@ -40,7 +40,7 @@ cover:
 
 接下来在实际报表中来应用下上面的知识，先创建几个基础度量
 
-```DAX
+```js
 Sales Amount = SUM( 'FactInternetSales'[SalesAmount])
 
 LM.Sales Amount = 
@@ -61,7 +61,7 @@ DIVIDE( [Sales Amount] - [LM.Sales Amount], [LM.Sales Amount] )
 
 接下来换另一种写法，从数学上讲（A-B）/B 是等价于 A/B - 1的，所以我们这样写同比
 
-```DAX
+```js
 MOM%.Sales Amount 2 = 
 DIVIDE( [Sales Amount], [LM.Sales Amount] ) - 1
 ```
@@ -70,7 +70,7 @@ DIVIDE( [Sales Amount], [LM.Sales Amount] ) - 1
 
 造成这个结果的原因是在加减法中BLANK会自动转换为0，0-1肯定是-1无疑了。所以为了让未发生的日期不显示负值，通常会做下判断
 
-```DAX
+```js
 MOM%.Sales Amount 3 = 
 IF(
     NOT ISBLANK( [Sales Amount] ),
@@ -82,7 +82,7 @@ IF(
 
 接下来再看另外一个例子，假设我们想统计产品数量
 
-```DAX
+```js
 Products = 
 COUNTROWS (  'DimProduct' )
 

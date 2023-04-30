@@ -17,7 +17,7 @@ returns: 表
 
 ## 语法
 
-```DAX
+```js
 DATEADD ( <Dates>, <NumberOfIntervals>, <Interval> )
 ```
 
@@ -39,7 +39,7 @@ DATEADD ( <Dates>, <NumberOfIntervals>, <Interval> )
 
 ## 示例
 
-```DAX
+```js
 --  DATEADD is a more generic functions.
 --  It shifts a period back and forth over time using
 --  DAY, MONTH, QUARTER, YEAR
@@ -58,7 +58,7 @@ ORDER BY [Date]
 
 ![[Pasted image 20211108222519.png]]
 
-```DAX
+```js
 --  DATEADD has a quite complex logic to move months and quarters
 --  the right way, handling months with different dates.
 EVALUATE
@@ -77,7 +77,7 @@ ORDER BY [Date]
 
 MTD 、YTD、 QTD
 
-```DAX
+```js
 --  This example shows the sales in the current and previous month.
 --  It also reports sales in the same month in the previous quarter and year.
 DEFINE

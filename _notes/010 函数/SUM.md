@@ -21,7 +21,7 @@ where file.name = this.file.name
 
 ## 语法
 
-```DAX
+```js
 SUM ( <ColumnName> )
 ```
 
@@ -37,13 +37,13 @@ SUM ( <ColumnName> )
 
 -   当聚合单列时，内部执行SUMX,
 
-```DAX
+```js
 SUM ( table[column] )
 ```
 
 等价于
 
-```DAX
+```js
 SUMX (
     table,
     table[column]
@@ -54,7 +54,7 @@ SUMX (
 
 ## 示例
 
-```DAX
+```js
 --  SUM is the short version of SUMX, when used with one column only
 --  SUMX is required to evaluate formulas, instead of columns
 DEFINE
@@ -71,7 +71,7 @@ SUMMARIZECOLUMNS (
 )
 ```
 
-```DAX
+```js
 --  SUMX is needed to iterate the content of a variable,
 --  indeed SUM works only with columns in the model
 DEFINE

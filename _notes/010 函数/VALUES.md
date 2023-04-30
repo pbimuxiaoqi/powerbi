@@ -22,7 +22,7 @@ where file.name = this.file.name
 
 ## 语法
 
-```DAX
+```js
 VALUES ( <表名或列名> )
 ```
 
@@ -59,19 +59,19 @@ VALUES 的作用之一是将列转换为表。这对于需要调用表的函数�
 
 这也是一种经典用法，ALL 会移除所有筛选器，而使用 VALUES 可以将已经被忽略的特定筛选上下文重新引入。
 
-```DAX
+```js
 CALCULATE([Measure], ALL(Calendar), VALUES(Calendar[Year]))
 ```
 
 尽管 ALL(Calendar)移除了 Calendar 表上的所有筛选器，但 VALUES(Calendar[Year])从初始筛选上下文中恢复了年份列的筛选器。等价于下面的写法：
 
-```DAX
+```js
 CALCULATE([Measure], ALLEXCEPT(Calendar, Calendar[Year]))
 ```
 
 ### 检查正在生效的筛选上下文
 
-```DAX
+```js
 =IF (HASONEVALUE(Calendar[Month]),
        IF (VALUES(Calendar[Month]) = "April", "April 被筛选了", "其他月份"),
        "多月份"

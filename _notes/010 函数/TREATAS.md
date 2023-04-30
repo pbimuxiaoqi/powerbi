@@ -13,7 +13,7 @@ cover:
 
 ## 语法
 
-```DAX
+```js
 TREATAS ( <Expression>, <ColumnName> [, <ColumnName> [, … ] ] )
 ```
 
@@ -34,7 +34,7 @@ TREATAS ( <Expression>, <ColumnName> [, <ColumnName> [, … ] ] )
 
 ## 示例
 
-```DAX
+```js
 --  TREATAS can be used as an alternative syntax to apply
 --  a filter in CALCULATE/CALCULATETABLE
 DEFINE

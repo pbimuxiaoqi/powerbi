@@ -12,7 +12,7 @@ cover:
 
 ## 语法
 
-```DAX
+```js
 LOOKUPVALUE ( <Result_ColumnName>, <Search_ColumnName>, <Search_Value> [, <Search_ColumnName>, <Search_Value> [, … ] ] [, <Alternate_Result>] )
 ```
 
@@ -33,7 +33,7 @@ LOOKUPVALUE ( <Result_ColumnName>, <Search_ColumnName>, <Search_Value> [, <Searc
 -   如果没有满足所有搜索值的匹配项，则返回空值或<备选结果>（如果提供） 。 换句话说，如果仅部分条件匹配，则该函数将不会返回查找值
 -   如果有多行匹配搜索值，并且在所有情况下结果列的值都相同，那么 LOOKUPVALUE 返回该值 。 但是，如果结果列返回不同的值，则函数返回错误或备选结果（如果提供） ,等效于如下
 
-```DAX
+```js
 VAR SearchValue = <Search_Value>
 RETURN
     CALCULATE (
@@ -50,7 +50,7 @@ RETURN
 -   LOOKUPVALUE 忽略任何筛选上下文
 -   当不可能使用 RELATED 利用数据模型中的现有关系获取数据时，才可以考虑使用 LOOKUPVALUE，因为 RELATED 更快。正因如此，LOOKUPVALUE 通常用于无关系数据的获取，此时 TREATAS 也是不错的选择，而且某些某些情况下性能可能好于 LOOKUPVALUE。
 
-```DAX
+```js
 LOOKUPVALUE (
     table[result_column],
     table[search_column_1], <expression_1>,
@@ -63,7 +63,7 @@ LOOKUPVALUE (
 可考虑如下写法
 ```
 
-```DAX
+```js
 CALCULATE (
     SELECTEDVALUE ( table[result_column], <alternate_result> ),
     FILTER (
@@ -82,7 +82,7 @@ CALCULATE (
 当 <expression_1> 和 <expression_2> 是常量值时，没有问题。但是，通常情况下，这些表达式更加复杂，这可能会生成更昂贵的查询计划，其中包括对存储引擎的 CallbackDataID 请求。 可以采用如下方法
 ```
 
-```DAX
+```js
 VAR filterValue1 = <expression_1>
 VAR filterValue2 = <expression_2>
 RETURN CALCULATE (
@@ -97,7 +97,7 @@ RETURN CALCULATE (
 也可以写成如下
 ```
 
-```DAX
+```js
 CALCULATE (
     DISTINCT ( table[result_column] ),
     TREATAS ( { <expression_1> }, table[search_column_1] ),
@@ -110,7 +110,7 @@ CALCULATE (
 条件最好写到变量里
 ```
 
-```DAX
+```js
 VAR filter1 = TREATAS ( { <expression_1> }, table[search_column_1] )
 VAR filter2 = TREATAS ( { <expression_2> }, table[search_column_2] )
 RETURN CALCULATE (
@@ -125,7 +125,7 @@ RETURN CALCULATE (
 也可以创建一个包含多列的筛选器，有可能会产生更好的查询
 ```
 
-```DAX
+```js
 VAR filterLookup =
     TREATAS (
         { ( <expression_1>, <expression_2> ) },
@@ -141,7 +141,7 @@ RETURN CALCULATE (
 
 ## 示例
 
-```DAX
+```js
 LOOKUPVALUE (
     ExchangeRates[Rate],
     ExchangeRates[Date], DATE ( 2018, 4, 15 ),
@@ -151,7 +151,7 @@ LOOKUPVALUE (
 
 返回客户在2009年生日时是周几
 
-```DAX
+```js
 --  LOOKUPVALUE searches in a table for the value of a column in a row
 --  that satisfy a set of equality conditions
 EVALUATE

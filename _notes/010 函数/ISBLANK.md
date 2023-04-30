@@ -16,7 +16,7 @@ cover:
 
 ## 语法
 
-```DAX
+```js
 ISBLANK ( <Value> )
 ```
 
@@ -34,7 +34,7 @@ ISBLANK ( <Value> )
 
 -   也可以使用`==`来判断
 
-```DAX
+```js
 ISBLANK ( <expression> ) -- same result as the following line
 <expression> == BLANK()  -- same result as the previous line
 ```
@@ -43,7 +43,7 @@ ISBLANK ( <expression> ) -- same result as the following line
 
 ## 示例
 
-```DAX
+```js
 --  ISBLANK check that an expression is strictly equal to BLANK
 --  ISBLANK (x) is an alias for x == BLANK ()
 --  An empty string and 0 are not considered blank by ISBLANK
@@ -67,7 +67,7 @@ ORDER BY [Value1]
 
 不能应用于表
 
-```DAX
+```js
 --  ISBLANK cannot be used with tables, it requires a scalar value
 --  using it with tables forces the implicit conversion of a table
 --  to a scalar value and might result in an error
@@ -83,7 +83,7 @@ ORDER BY [Value1]
 
 ![](https://secure2.wostatic.cn/static/6F4MpNoUkpVwquo1dKPDJm/image.png)
 
-```DAX
+```js
 --  ISBLANK check that an expression is strictly equal to BLANK
 --  ISBLANK (x) is an alias for x == BLANK ()
 DEFINE

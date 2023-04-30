@@ -27,7 +27,7 @@ where file.name = this.file.name
 
 在dax中有两种方式可以从表中删除除某些列之外的所有筛选器
 
-```DAX
+```js
 UsingAllExcept :=
 CALCULATE (
     [Sales Amount],
@@ -46,7 +46,7 @@ CALCULATE (
 
 另外，[[REMOVEFILTERS]]当作为调节器使用时，它是ALL的别名，会产生更具可读性的代码
 
-```DAX
+```js
 UsingRemoveFiltersValues :=
 CALCULATE (
     [Sales Amount],
@@ -65,7 +65,7 @@ CALCULATE (
 
 为了计算 PercOverContinent，我们需要将 Sales Amount（即当前筛选上下文中的 Sales Amount 度量）除以筛选上下文中的相同度量，我们从 Customer 表中删除除 Continent 列之外的所有筛选器
 
-```DAX
+```js
 PercOverContinent1=
 VAR SelSales = [Sales Amount]
 VAR ConSales =
@@ -84,7 +84,7 @@ RETURN
 
 当然，也可以使用不同的方式来编写，比如使用[[REMOVEFILTERS]]，
 
-```DAX
+```js
 PercOverContinent2 = 
 VAR SelSales = [Sales Amount]
 VAR ConSales =
@@ -124,7 +124,7 @@ RETURN
 
 <font color="red">当需要在单列上保留筛选时可以使用[[VALUES]],当需要在多列上使用时，使用[[SUMMARIZE]]</font>
 
-```DAX
+```js
 PercOverState :=
 VAR SelSales = [Sales Amount]
 VAR StateSales =
@@ -147,7 +147,7 @@ RETURN
 
 ## 层级占比
 下面的写法和层级占比有些类似
-```DAX
+```js
 PercOverState=
 VAR SelSales = [Sales Amount]
 VAR StateSales =
@@ -170,7 +170,7 @@ Result
 ```
 ![[Pasted image 20211124134041.png]]
 
-```dax
+```js
 Perc =
 VAR SelSales = [Sales Amount]
 VAR Result =

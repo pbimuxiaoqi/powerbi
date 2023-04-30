@@ -9,7 +9,7 @@ url: https://dax.guide/filter/
 参考来源：https://dax.guide/filter/
 ## 语法
 
-```DAX
+```js
 SUMX ( <表名>, <表达式> )
 ```
 | PARAMETER                                                    | ATTRIBUTES | DESCRIPTION                                                  |
@@ -33,7 +33,7 @@ SUMX ( <表名>, <表达式> )
 
 ## 示例
 
-```DAX
+```js
 --  SUM is the short version of SUMX, when used with one column only
 --  SUMX is required to evaluate formulas, instead of columns
 DEFINE
@@ -50,7 +50,7 @@ SUMMARIZECOLUMNS (
 )
 ```
 
-```DAX
+```js
 --  SUMX is needed to iterate the content of a variable,
 --  indeed SUM works only with columns in the model
 DEFINE
@@ -76,7 +76,7 @@ SUMMARIZECOLUMNS (
 )
 ```
 
-```DAX
+```js
 Sum of Margin for High School = 
 SUMX(
   FILTER(
@@ -87,7 +87,7 @@ SUMX(
 )
 ```
 
-```DAX
+```js
 Sum of Sales by Customer = 
 SUMX(
   CALCULATETABLE(
@@ -98,7 +98,7 @@ SUMX(
 )
 ```
 
-```DAX
+```js
 SUMX with OR = 
 SUMX(
   FILTER (

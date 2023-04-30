@@ -14,7 +14,7 @@ cover:
 
 ## 语法
 
-```DAX
+```js
 CROSSFILTER ( <关系的左列>, <关系的右列>, <筛选类型> )
 ```
 
@@ -45,7 +45,7 @@ CROSSFILTER ( <关系的左列>, <关系的右列>, <筛选类型> )
 
 ## 案例
 
-```DAX
+```js
 --  CROSSFILTER changes the cross-filter direction of a relationship
 --  The arguments are the columns involved in the relationship and
 --  the cross-filter direction, that can be BOTH, SINGLE, NONE
